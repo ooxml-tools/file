@@ -2,10 +2,8 @@ import JSZip from "jszip";
 import { open } from "src";
 import { ArgumentsCamelCase, Argv } from "yargs";
 
-export const cmd = "list <docxpath>";
-
+export const cmd = "list <docxpath> <filepath>";
 export const desc = "list files in docx";
-
 export const builder = (yargs: Argv) => {
     yargs
         .positional("docxpath", {
@@ -13,12 +11,11 @@ export const builder = (yargs: Argv) => {
             describe: "",
         })
 };
-
 export async function handler (
     {docxpath}: ArgumentsCamelCase<{ docxpath: string; }>
 ) {
     const zip = new JSZip()
     await zip.loadAsync(docxpath)
     const doc = open(zip);
-    return doc.list()
+    console.log(doc.list())
 }

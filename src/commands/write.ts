@@ -1,7 +1,6 @@
 import JSZip from "jszip";
 import { open } from "src";
 import { ArgumentsCamelCase, Argv } from "yargs";
-import { readFile } from "fs/promises"
 
 export const cmd = "write <docxpath> <filepath>";
 export const desc = "create/override file in docx";

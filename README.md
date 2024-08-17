@@ -20,7 +20,7 @@ Commands:
   unpack <docxpath> <dirpath>  unpack docx to a directory
   list <docxpath>              list files in docx
   read <docxpath> <filepath>   read file inside docx to sdtout
-  write <docxpath> <filepath>  create/override file in docx
+  write <docxpath> <filepath> -  create/override file in docx
 
 Options:
   --version  Show version number                                       [boolean]

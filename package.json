@@ -9,14 +9,20 @@
     "ooxml-file": "./dist/npm/bin/ooxml-file.js"
   },
   "scripts": {
-    "lint": "npx prettier . --check"
+    "lint": "npx prettier . --check",
+    "build": "npm run build:npm",
+    "build:npm": "rollup -c rollup.config.ts --configPlugin typescript"
+  },
+  "exports": {
+    ".": "./dist/npm/index.js",
+    "./commands": "./dist/npm/commands.js"
   },
   "files": [
     "./dist/npm",
     "./package.json",
     "./README.md"
   ],
-  "devDependencies": {
+  "desDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
     "@rollup/plugin-virtual": "^3.0.2",
     "@tsconfig/node22": "^22.0.0",
@@ -26,6 +32,7 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-typescript-paths": "^1.5.0",
+    "tslib": "^2.6.3",
     "tsx": "^4.16.2"
   },
   "engines": {
@@ -33,6 +40,17 @@
   },
   "dependencies": {
     "jszip": "^3.10.1",
+    "typescript": "^5.5.4",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.4.0",
+    "@types/yargs": "^17.0.33",
+    "rollup": "^4.20.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-typescript-paths": "^1.5.0",
+    "tslib": "^2.6.3"
   }
 }

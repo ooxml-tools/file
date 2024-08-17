@@ -1,7 +1,7 @@
 #!/usr/bin/env ./node_modules/.bin/tsx
 import { relative } from 'path';
 import yargs from 'yargs/yargs';
-import * as commands from "./commands";
+import * as commands from "../src/commands";
 
 const scriptName = relative(process.cwd(), process.argv[1] ?? "")
 
