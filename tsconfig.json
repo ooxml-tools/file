@@ -1,0 +1,25 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "plugins": [],
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "paths": {}
+  },
+  "exclude": ["dist", "types", "node_modules", "old"],
+  "include": ["**/*.ts", "**/*.tsx"]
+}
