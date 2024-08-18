@@ -23,11 +23,12 @@ jobs:
           node-version: "20.x"
       - run: npm ci
       - run: npm test
+      - run: npm run build
       - uses: actions/upload-artifact@v4
         with:
           name: npm
           path: |
-            ./dist/
+            ./dist/npm/
             ./package.json
             ./README.md
 
