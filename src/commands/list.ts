@@ -2,7 +2,7 @@ import JSZip from "jszip";
 import { open } from "src";
 import { ArgumentsCamelCase, Argv } from "yargs";
 
-export const cmd = "list <docxpath> <filepath>";
+export const cmd = "list <docxpath>";
 export const desc = "list files in docx";
 export const builder = (yargs: Argv) => {
     yargs
