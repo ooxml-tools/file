@@ -10,6 +10,7 @@
   },
   "scripts": {
     "lint": "npx prettier . --check",
+    "lint:format": "npx prettier . --write",
     "build": "npm run build:npm",
     "build:npm": "rollup -c rollup.config.ts --configPlugin typescript"
   },
