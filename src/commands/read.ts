@@ -1,3 +1,4 @@
+import { readFile } from "fs/promises";
 import JSZip from "jszip";
 import { open } from "src";
 import { ArgumentsCamelCase, Argv } from "yargs";
@@ -19,13 +20,17 @@ export async function handler (
     {docxpath, filepath}: ArgumentsCamelCase<{ docxpath: string, filepath: string }>
 ) {
     const zip = new JSZip()
-    await zip.loadAsync(docxpath)
+    const data = await readFile(docxpath)
+    await zip.loadAsync(data)
     const doc = open(zip);
     
-    if (doc.list().includes(filepath)) {
+    if (!doc.list().includes(filepath)) {
+        console.error(`Missing fike: ${filepath}`)
         process.exit(1);
     } else {
-        console.log(doc.readFile(filepath))
+        const content = await doc.readFile(filepath);
+        const stringContent = new TextDecoder().decode(content);
+        console.log(stringContent);
         process.exit(0);
     }
 }

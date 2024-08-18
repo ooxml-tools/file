@@ -1,3 +1,4 @@
+import { readFile, writeFile } from "fs/promises";
 import JSZip from "jszip";
 import { open } from "src";
 import { ArgumentsCamelCase, Argv } from "yargs";
@@ -22,10 +23,18 @@ export async function handler (
     for await (const data of process.stdin) {
       buffers.push(data);
     }    
-    const data = Buffer.concat(buffers);
+    const inputData = Buffer.concat(buffers);
 
     const zip = new JSZip();
-    await zip.loadAsync(docxpath);
+    const data = await readFile(docxpath)
+    await zip.loadAsync(data);
     const doc = open(zip);
-    await doc.writeFile(filepath, data);
+    await doc.writeFile(filepath, inputData);
+
+    const buffer = await zip.generateAsync({
+        type: "nodebuffer",
+        mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        compression: "DEFLATE",
+    });
+    await writeFile(docxpath, buffer);
 }

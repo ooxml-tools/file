@@ -8,7 +8,11 @@ export class OpenOfficeXml {
   }
 
   pack () {
-    return this.zip.generateAsync({type:"blob"})
+    return this.zip.generateAsync({
+      type: "blob",
+      mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      compression: "DEFLATE",
+    })
   }
 
   unpack () {
@@ -38,6 +42,12 @@ export class OpenOfficeXml {
     if (!obj) throw new Error();
     if (!obj.dir) throw new Error();
     return obj;
+  }
+
+  isDirectory (dirpath: string) {
+    const obj = this.zip.files[dirpath];
+    if (!obj) throw new Error(`Doesn't exist ${dirpath}`);
+    return obj.dir;
   }
 
   mkdir (dirpath: string) {

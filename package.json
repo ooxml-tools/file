@@ -35,12 +35,13 @@
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-typescript-paths": "^1.5.0",
     "tslib": "^2.6.3",
-    "tsx": "^4.16.2"
+    "tsx": "^4.17.0"
   },
   "engines": {
     "node": ">=20.x"
   },
   "dependencies": {
+    "glob": "^11.0.0",
     "jszip": "^3.10.1",
     "typescript": "^5.5.4",
     "yargs": "^17.7.2"

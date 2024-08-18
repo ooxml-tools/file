@@ -1,7 +1,7 @@
 import JSZip from "jszip";
-import {writeFile, mkdir} from "fs/promises"
+import {writeFile, mkdir, readFile} from "fs/promises"
 import { open } from "src";
-import { join } from "path"
+import { dirname, join } from "path"
 import { ArgumentsCamelCase, Argv } from "yargs";
 
 export const cmd = "unpack <docxpath> <dirpath>";
@@ -21,12 +21,17 @@ export async function handler (
     {docxpath, dirpath}: ArgumentsCamelCase<{ docxpath: string, dirpath: string }>
 ) {
     const zip = new JSZip()
-    await zip.loadAsync(docxpath)
+    const data = await readFile(docxpath)
+    await zip.loadAsync(data)
     const doc = open(zip);
     for (const docxpath of doc.list()) {
-        const outpath = join(docxpath, docxpath);
-        await mkdir(outpath, {recursive: true});
-        const data = await doc.readFile(docxpath)
-        await writeFile(outpath, data)
+        if (doc.isDirectory(docxpath)) {
+            await mkdir(docxpath, {recursive: true});
+        } else {
+            const outpath = join(dirpath, docxpath);
+            await mkdir(dirname(outpath), {recursive: true});
+            const data = await doc.readFile(docxpath)
+            await writeFile(outpath, data)
+        }
     }
 }
