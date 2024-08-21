@@ -1,4 +1,4 @@
-# @ooxml-tools/file
+# <img alt="@ooxml-tools/file" height="56" src="https://github.com/user-attachments/assets/4984e7de-7f42-41e4-830b-775ba8361365" />
 Inspect Office Open XML files (currently only `.docx`) in nodejs/browser.
 
 ## Usage
