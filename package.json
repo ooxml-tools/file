@@ -1,6 +1,6 @@
 {
   "name": "@ooxml-tools/file",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "license": "MIT",
   "main": "./dist/npm/index.js",
   "types": "./dist/npm/types.d.ts",
