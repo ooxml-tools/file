@@ -8,18 +8,16 @@ const outputDir = join(import.meta.dirname, "/dist/npm/");
 export default [
   {
     input: {
-      "index": "src/index.ts",
+      index: "src/index.ts",
       "bin/ooxml-file": "bin/ooxml-file.ts",
-      "commands": "src/commands/index.ts",
+      commands: "src/commands/index.ts",
     },
     output: {
       dir: outputDir,
       format: "es",
     },
     external: ["yargs/yargs", "yargs/helpers", "fs/promises"],
-    plugins: [
-      typescript({ tsconfig: "./tsconfig.json" }),
-    ],
+    plugins: [typescript({ tsconfig: "./tsconfig.json" })],
   },
   {
     input: "src/index.ts",

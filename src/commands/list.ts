@@ -1,23 +1,21 @@
-import { readFile } from "fs/promises";
 import JSZip from "jszip";
-import { open } from "src";
+import { formatFromFilename, open } from "../";
 import { ArgumentsCamelCase, Argv } from "yargs";
+import { openAsArrayBuffer } from "./helper";
 
 export const cmd = "list <docxpath>";
 export const desc = "list files in docx";
 export const builder = (yargs: Argv) => {
-    yargs
-        .positional("docxpath", {
-            type: "string",
-            describe: "",
-        })
+  yargs.positional("docxpath", {
+    type: "string",
+    describe: "",
+  });
 };
-export async function handler (
-    {docxpath}: ArgumentsCamelCase<{ docxpath: string; }>
-) {
-    const zip = new JSZip()
-    const data = await readFile(docxpath)
-    await zip.loadAsync(data)
-    const doc = open(zip);
-    console.log(doc.list().join("\n"))
+export async function handler({
+  docxpath,
+}: ArgumentsCamelCase<{ docxpath: string }>) {
+  const zip = new JSZip();
+  await zip.loadAsync(await openAsArrayBuffer(docxpath));
+  const doc = open(formatFromFilename(docxpath), zip);
+  console.log(doc.list().join("\n"));
 }
