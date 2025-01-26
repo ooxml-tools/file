@@ -1,5 +1,4 @@
 #!/usr/bin/env ./node_modules/.bin/tsx
-import { relative } from "path";
 import yargs from "yargs/yargs";
 import * as commands from "../src/commands";
 
@@ -8,7 +7,7 @@ const scriptName = "ooxml-file";
 yargs(process.argv.slice(2))
   .usage(`${scriptName} <command> [args]`)
   // HACK to remove script-name from commands
-  .scriptName(scriptName)
+  .scriptName("")
   .example([
     [`${scriptName} init ./test.docx`],
     [`${scriptName} unpack ./test.docx test.docx.unpacked`],
