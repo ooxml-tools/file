@@ -59,4 +59,5 @@ yargs(process.argv.slice(2))
     commands.write.builder,
     commands.write.handler,
   )
+  .demand(1)
   .help().argv;
