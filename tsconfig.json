@@ -20,6 +20,6 @@
     "baseUrl": ".",
     "paths": {}
   },
-  "exclude": ["dist", "types", "node_modules", "old"],
+  "exclude": ["dist", "node_modules", "old"],
   "include": ["**/*.ts", "**/*.tsx"]
 }

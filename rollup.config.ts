@@ -1,3 +1,4 @@
+import shebang from 'rollup-plugin-preserve-shebang';
 import typescript from "@rollup/plugin-typescript";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import dts from "rollup-plugin-dts";
@@ -17,7 +18,12 @@ export default [
       format: "es",
     },
     external: ["yargs/yargs", "yargs/helpers", "fs/promises"],
-    plugins: [typescript({ tsconfig: "./tsconfig.json" })],
+    plugins: [
+      shebang({     
+        shebang: '#!/usr/bin/env node'
+      }),
+      typescript({ tsconfig: "./tsconfig.json" })
+    ],
   },
   {
     input: "src/index.ts",
