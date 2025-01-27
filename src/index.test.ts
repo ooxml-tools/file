@@ -9,7 +9,11 @@ import {
 } from "./";
 
 test("FORMATS", () => {
-  expect(FORMATS).toEqual(["docx", "xlsx", "pptx"]);
+  expect(FORMATS).toEqual([
+    "docx",
+    // "xlsx",
+    // "pptx"
+  ]);
 });
 
 describe("getMimeType", () => {
@@ -17,12 +21,12 @@ describe("getMimeType", () => {
     expect(getMimeType("docx")).toEqual(
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     );
-    expect(getMimeType("xlsx")).toEqual(
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    );
-    expect(getMimeType("pptx")).toEqual(
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-    );
+    // expect(getMimeType("xlsx")).toEqual(
+    //   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    // );
+    // expect(getMimeType("pptx")).toEqual(
+    //   "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    // );
   });
 
   test("invalid", () => {
@@ -34,8 +38,8 @@ describe("getMimeType", () => {
 describe("formatFromFilename", () => {
   test("valid", () => {
     expect(formatFromFilename("./foo/bar/baz.docx")).toEqual("docx");
-    expect(formatFromFilename("./foo/bar/baz.pptx")).toEqual("pptx");
-    expect(formatFromFilename("./foo/bar/baz.xlsx")).toEqual("xlsx");
+    // expect(formatFromFilename("./foo/bar/baz.pptx")).toEqual("pptx");
+    // expect(formatFromFilename("./foo/bar/baz.xlsx")).toEqual("xlsx");
   });
 
   test("invalid", () => {
@@ -46,8 +50,8 @@ describe("formatFromFilename", () => {
 describe("assertValidType", () => {
   test("valid", () => {
     expect(assertValidType("docx")).toEqual("docx");
-    expect(assertValidType("pptx")).toEqual("pptx");
-    expect(assertValidType("xlsx")).toEqual("xlsx");
+    // expect(assertValidType("pptx")).toEqual("pptx");
+    // expect(assertValidType("xlsx")).toEqual("xlsx");
   });
   test("invalid", () => {
     expect(() => assertValidType("foo")).toThrow();
@@ -98,14 +102,14 @@ describe("OfficeOpenXml", () => {
     expect(doc1.mimeType()).toEqual(
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     );
-    const doc2 = init("xlsx", {});
-    expect(doc2.mimeType()).toEqual(
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    );
-    const doc3 = init("pptx", {});
-    expect(doc3.mimeType()).toEqual(
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-    );
+    // const doc2 = init("xlsx", {});
+    // expect(doc2.mimeType()).toEqual(
+    //   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    // );
+    // const doc3 = init("pptx", {});
+    // expect(doc3.mimeType()).toEqual(
+    //   "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    // );
   });
 
   describe("pack", () => {
@@ -116,20 +120,20 @@ describe("OfficeOpenXml", () => {
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       );
     });
-    test("valid (xlsx)", async () => {
-      const doc = init("xlsx", { test: "test" });
-      const blob = await doc.pack("blob");
-      expect(blob.type).toEqual(
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      );
-    });
-    test("valid (pptx)", async () => {
-      const doc = init("pptx", { test: "test" });
-      const blob = await doc.pack("blob");
-      expect(blob.type).toEqual(
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      );
-    });
+    // test("valid (xlsx)", async () => {
+    //   const doc = init("xlsx", { test: "test" });
+    //   const blob = await doc.pack("blob");
+    //   expect(blob.type).toEqual(
+    //     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    //   );
+    // });
+    // test("valid (pptx)", async () => {
+    //   const doc = init("pptx", { test: "test" });
+    //   const blob = await doc.pack("blob");
+    //   expect(blob.type).toEqual(
+    //     "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    //   );
+    // });
   });
 
   describe("unpack", () => {

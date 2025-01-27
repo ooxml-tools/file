@@ -23,8 +23,8 @@ interface OutputByType {
 
 export const MIME_TYPES: Record<OfficeOpenXmlType, string> = {
   docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-  pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  // xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  // pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
 };
 
 export { default as docxBlankFiles } from "./blank/docx";
