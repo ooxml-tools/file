@@ -5,16 +5,16 @@ import {
   FORMATS,
   OfficeOpenXml,
   docxBlankFiles,
-  xlsxBlankFiles,
-  pptxBlankFiles,
+  // xlsxBlankFiles,
+  // pptxBlankFiles,
   OfficeOpenXmlType,
 } from "../";
 import { ArgumentsCamelCase, Argv } from "yargs";
 
 const blankContents: Record<OfficeOpenXmlType, Record<string, string>> = {
   docx: docxBlankFiles,
-  xlsx: xlsxBlankFiles,
-  pptx: pptxBlankFiles,
+  // xlsx: xlsxBlankFiles,
+  // pptx: pptxBlankFiles,
 };
 
 export const cmd = "init <docxpath>";
