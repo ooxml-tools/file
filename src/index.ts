@@ -1,7 +1,11 @@
 import JSZip from "jszip";
 import { extname } from "path";
 
-export const FORMATS = ["docx", "xlsx", "pptx"] as const;
+export const FORMATS = [
+  "docx",
+  // "xlsx",
+  // "pptx"
+] as const;
 
 export type OfficeOpenXmlType = (typeof FORMATS)[number];
 
