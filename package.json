@@ -26,6 +26,7 @@
     "./README.md"
   ],
   "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@rollup/plugin-virtual": "^3.0.2",
     "@tsconfig/node22": "^22.0.0",
