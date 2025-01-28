@@ -23,11 +23,11 @@ console.log(await docx.list());
 ## CLI
 
 ```bash
-./ooxml-file <command> [args]
+# ooxml-file <command> [args]
 #
 # Commands:
 #   formats                      list valid formats
-#   init <docxpath>              initializes a blank file (docx, xlsx, pptx)
+#   init <docxpath>              initializes a blank file (docx)
 #   pack <docxpath> <dirpath>    pack directory to docx file
 #   unpack <docxpath> <dirpath>  unpack docx to a directory
 #   list <docxpath>              list files in docx
@@ -39,12 +39,12 @@ console.log(await docx.list());
 #   --help     Show help                                                 [boolean]
 #
 # Examples:
-#   bin/ooxml-file.ts init ./test.docx
-#   bin/ooxml-file.ts unpack ./test.docx test.docx.unpacked
-#   bin/ooxml-file.ts pack ./test.docx test.docx.unpacked
-#   bin/ooxml-file.ts list ./test.docx
-#   bin/ooxml-file.ts read ./test.docx word/document.xml
-#   bin/ooxml-file.ts write ./test.docx word/document.xml < input.xml
+#   ooxml-file init ./test.docx
+#   ooxml-file unpack ./test.docx test.docx.unpacked
+#   ooxml-file pack ./test.docx test.docx.unpacked
+#   ooxml-file list ./test.docx
+#   ooxml-file read ./test.docx word/document.xml
+#   ooxml-file write ./test.docx word/document.xml < input.xml
 ```
 
 ## License
