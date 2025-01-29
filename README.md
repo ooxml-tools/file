@@ -1,4 +1,10 @@
-# <img alt="@ooxml-tools/file" height="56" src="https://github.com/user-attachments/assets/4984e7de-7f42-41e4-830b-775ba8361365" />
+<h1>
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://ooxml-tools.github.io/design/images/file-dark.png">
+        <source media="(prefers-color-scheme: light)" srcset="https://ooxml-tools.github.io/design/images/file-light.png">
+        <img alt="@ooxml-tools/file" height="56" src="https://ooxml-tools.github.io/design/images/file-light.png">
+    </picture>
+</h1>
 
 Inspect Office Open XML files in nodejs/browser.
 
