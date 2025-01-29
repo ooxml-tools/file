@@ -29,7 +29,7 @@ export default [
   },
   {
     input: "src/index.ts",
-    output: [{ file: `${outputDir}/types.d.ts`, format: "es" }],
+    output: [{ file: `${outputDir}/index.d.ts`, format: "es" }],
     plugins: [json(), typescriptPaths({ preserveExtensions: true }), dts()],
   },
   {
