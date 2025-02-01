@@ -6,7 +6,7 @@
     </picture>
 </h1>
 
-Inspect Office Open XML files in nodejs/browser.
+Read/write Office Open XML files in nodejs/browser.
 
 Support for reading and writing to
 
