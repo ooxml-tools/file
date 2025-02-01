@@ -1,7 +1,7 @@
 {
   "name": "@ooxml-tools/file",
   "description": "Read/write Office Open XML files in nodejs/browser",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "license": "MIT",
   "main": "./dist/npm/index.js",
   "types": "./dist/npm/types.d.ts",
