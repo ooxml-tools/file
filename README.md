@@ -53,6 +53,11 @@ console.log(await docx.list());
 #   ooxml-file write ./test.docx word/document.xml < input.xml
 ```
 
+## CI
+
+[![codecov](https://codecov.io/gh/ooxml-tools/file/graph/badge.svg?token=TZ6IV00CPW)](https://codecov.io/gh/ooxml-tools/file)
+
+
 ## License
 
 MIT
