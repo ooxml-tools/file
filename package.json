@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lint": "npx prettier . --check",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint:format": "npx prettier . --write",
     "build": "npm run build:data && npm run build:npm",
     "build:data": "tsx scripts/generate-blanks.ts",
