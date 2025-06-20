@@ -27,6 +27,7 @@
     "./README.md"
   ],
   "devDependencies": {
+    "@codecov/rollup-plugin": "^1.9.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@rollup/plugin-virtual": "^3.0.2",

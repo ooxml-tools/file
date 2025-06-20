@@ -4,6 +4,7 @@ import json from "@rollup/plugin-json";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import dts from "rollup-plugin-dts";
 import { join } from "path";
+import { codecovRollupPlugin } from "@codecov/rollup-plugin";
 
 const outputDir = join(import.meta.dirname, "/dist/npm/");
 
@@ -25,6 +26,11 @@ export default [
       }),
       json(),
       typescript({ tsconfig: "./tsconfig.json" }),
+      codecovRollupPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: "package",
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
     ],
   },
   {
