@@ -6,8 +6,8 @@ test("formats", () => {
   expect(consoleMock).toHaveBeenCalledWith(
     [
       "docx",
-      // "xlsx",
-      // "pptx"
+      "xlsx",
+      "pptx"
     ].join("\n"),
   );
 });
