@@ -35,7 +35,7 @@
     "@types/jest": "^30.0.0",
     "@types/yargs": "^17.0.32",
     "jest": "^30.2.0",
-    "prettier": "3.6.2",
+    "prettier": "3.7.4",
     "rollup": "^4.18.1",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.1",
