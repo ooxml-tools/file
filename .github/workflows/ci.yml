@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: "20.x"
       - run: npm ci
-      - run: npm test
+      - run: npm run test:ci
       - run: npm run build
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

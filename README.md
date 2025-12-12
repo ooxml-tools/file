@@ -57,7 +57,6 @@ console.log(await docx.list());
 
 [![codecov](https://codecov.io/gh/ooxml-tools/file/graph/badge.svg?token=TZ6IV00CPW)](https://codecov.io/gh/ooxml-tools/file)
 
-
 ## License
 
 MIT
