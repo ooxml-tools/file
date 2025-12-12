@@ -7,7 +7,7 @@ import {
   init,
   open,
 } from "./";
-import { test, describe, expect } from "vitest"
+import { test, describe, expect } from "vitest";
 
 test("FORMATS", () => {
   expect(FORMATS).toEqual(["docx", "xlsx", "pptx"]);

@@ -1,6 +1,6 @@
 import { consoleMock } from "../util/mocks";
 import { handler } from "./formats";
-import { test, expect } from "vitest"
+import { test, expect } from "vitest";
 
 test("formats", () => {
   handler();
