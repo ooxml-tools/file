@@ -7,13 +7,10 @@ import {
   init,
   open,
 } from "./";
+import { test, describe, expect } from "vitest"
 
 test("FORMATS", () => {
-  expect(FORMATS).toEqual([
-    "docx",
-    "xlsx",
-    "pptx"
-  ]);
+  expect(FORMATS).toEqual(["docx", "xlsx", "pptx"]);
 });
 
 describe("getMimeType", () => {
@@ -231,7 +228,7 @@ describe("OfficeOpenXml", () => {
 
     test("missing", async () => {
       const doc = init("docx", {});
-      expect(doc.readFile("foo/bar/baz", "string")).rejects.toEqual(
+      await expect(doc.readFile("foo/bar/baz", "string")).rejects.toEqual(
         new Error("Missing file: foo/bar/baz"),
       );
     });

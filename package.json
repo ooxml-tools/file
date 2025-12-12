@@ -11,7 +11,8 @@
   },
   "scripts": {
     "lint": "npx prettier . --check",
-    "test": "jest --coverage",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage --reporter=junit --outputFile=test-report.junit.xml",
     "lint:format": "npx prettier . --write",
     "build": "npm run build:data && npm run build:npm",
     "build:data": "tsx scripts/generate-blanks.ts",
@@ -32,19 +33,18 @@
     "@rollup/plugin-typescript": "^12.1.2",
     "@rollup/plugin-virtual": "^3.0.2",
     "@tsconfig/node22": "^22.0.0",
-    "@types/jest": "^30.0.0",
     "@types/yargs": "^17.0.32",
-    "jest": "^30.2.0",
+    "@vitest/coverage-v8": "^4.0.15",
     "prettier": "3.6.2",
     "rollup": "^4.18.1",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-preserve-shebang": "^1.0.1",
     "rollup-plugin-typescript-paths": "^1.5.0",
-    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
-    "tsx": "^4.17.0"
+    "tsx": "^4.17.0",
+    "vitest": "^4.0.15"
   },
   "engines": {
     "node": ">=20.x"
