@@ -11,7 +11,7 @@ Read/write Office Open XML files in nodejs/browser.
 Support for reading and writing to
 
 - ✅ `.docx` — [WordprocessingML](http://officeopenxml.com/anatomyofOOXML.php)
-- 👷 `.xlsx` — [SpreadsheetML](http://officeopenxml.com/anatomyofOOXML-xlsx.php) (coming soon)
+- ✅ `.xlsx` — [SpreadsheetML](http://officeopenxml.com/anatomyofOOXML-xlsx.php) (coming soon)
 - 👷 `.pptx` — [PresentationML](http://officeopenxml.com/anatomyofOOXML-pptx.php) (coming soon)
 
 ## Usage
