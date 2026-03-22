@@ -6,7 +6,7 @@ import { glob } from "glob";
 import { relative } from "path";
 import { openAsArrayBuffer } from "./helper";
 
-export const cmd = "pack <filepath> <dirpath>";
+export const cmd = "pack <ooxmlpath> <dirpath>";
 export const desc = "pack directory to docx file";
 export const builder = (yargs: Argv) => {
   yargs
