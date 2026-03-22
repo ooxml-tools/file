@@ -3,11 +3,11 @@ import { formatFromFilename, open } from "src";
 import { ArgumentsCamelCase, Argv } from "yargs";
 import { openAsArrayBuffer } from "./helper";
 
-export const cmd = "read <docxpath> <filepath>";
+export const cmd = "read <ooxmlpath> <filepath>";
 export const desc = "read file inside docx to sdtout";
 export const builder = (yargs: Argv) => {
   yargs
-    .positional("docxpath", {
+    .positional("ooxmlpath", {
       type: "string",
       describe: "",
     })
@@ -17,12 +17,12 @@ export const builder = (yargs: Argv) => {
     });
 };
 export async function handler({
-  docxpath,
+  ooxmlpath,
   filepath,
-}: ArgumentsCamelCase<{ docxpath: string; filepath: string }>) {
+}: ArgumentsCamelCase<{ ooxmlpath: string; filepath: string }>) {
   const zip = new JSZip();
-  await zip.loadAsync(openAsArrayBuffer(docxpath));
-  const doc = open(formatFromFilename(docxpath), zip);
+  await zip.loadAsync(openAsArrayBuffer(ooxmlpath));
+  const doc = open(formatFromFilename(ooxmlpath), zip);
 
   if (!doc.list().includes(filepath)) {
     console.error(`Missing file: ${filepath}`);

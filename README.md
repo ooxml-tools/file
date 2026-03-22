@@ -11,7 +11,7 @@ Read/write Office Open XML files in nodejs/browser.
 Support for reading and writing to
 
 - ✅ `.docx` — [WordprocessingML](http://officeopenxml.com/anatomyofOOXML.php)
-- ✅ `.xlsx` — [SpreadsheetML](http://officeopenxml.com/anatomyofOOXML-xlsx.php) (coming soon)
+- ✅ `.xlsx` — [SpreadsheetML](http://officeopenxml.com/anatomyofOOXML-xlsx.php)
 - 👷 `.pptx` — [PresentationML](http://officeopenxml.com/anatomyofOOXML-pptx.php) (coming soon)
 
 ## Usage
@@ -21,7 +21,7 @@ The module accepts a [JSZip](https://github.com/Stuk/jszip) instance and adds so
 ```js
 import { open, openAsArrayBuffer } from "@ooxml-tools/file";
 
-await zip.loadAsync(openAsArrayBuffer(docxpath));
+await zip.loadAsync(openAsArrayBuffer(ooxmlpath));
 const doc = open("docx", zip);
 console.log(await docx.list());
 ```
@@ -33,12 +33,12 @@ console.log(await docx.list());
 #
 # Commands:
 #   formats                      list valid formats
-#   init <docxpath>              initializes a blank file (docx)
-#   pack <docxpath> <dirpath>    pack directory to docx file
-#   unpack <docxpath> <dirpath>  unpack docx to a directory
-#   list <docxpath>              list files in docx
-#   read <docxpath> <filepath>   read file inside docx to sdtout
-#   write <docxpath> <filepath>  create/override file in docx
+#   init <ooxmlpath>              initializes a blank file (docx)
+#   pack <ooxmlpath> <dirpath>    pack directory to docx file
+#   unpack <ooxmlpath> <dirpath>  unpack docx to a directory
+#   list <ooxmlpath>              list files in docx
+#   read <ooxmlpath> <filepath>   read file inside docx to sdtout
+#   write <ooxmlpath> <filepath>  create/override file in docx
 #
 # Options:
 #   --version  Show version number                                       [boolean]

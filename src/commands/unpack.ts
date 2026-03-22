@@ -5,11 +5,11 @@ import { dirname, join } from "path";
 import { ArgumentsCamelCase, Argv } from "yargs";
 import { openAsArrayBuffer } from "./helper";
 
-export const cmd = "unpack <docxpath> <dirpath>";
+export const cmd = "unpack <ooxmlpath> <dirpath>";
 export const desc = "unpack docx to a directory";
 export const builder = (yargs: Argv) => {
   yargs
-    .positional("docxpath", {
+    .positional("ooxmlpath", {
       type: "string",
       describe: "",
     })
@@ -19,19 +19,19 @@ export const builder = (yargs: Argv) => {
     });
 };
 export async function handler({
-  docxpath,
+  ooxmlpath,
   dirpath,
-}: ArgumentsCamelCase<{ docxpath: string; dirpath: string }>) {
+}: ArgumentsCamelCase<{ ooxmlpath: string; dirpath: string }>) {
   const zip = new JSZip();
-  await zip.loadAsync(openAsArrayBuffer(docxpath));
-  const doc = open(formatFromFilename(docxpath), zip);
-  for (const docxpath of doc.list()) {
-    if (doc.isDirectory(docxpath)) {
-      await mkdir(docxpath, { recursive: true });
+  await zip.loadAsync(openAsArrayBuffer(ooxmlpath));
+  const doc = open(formatFromFilename(ooxmlpath), zip);
+  for (const ooxmlpath of doc.list()) {
+    if (doc.isDirectory(ooxmlpath)) {
+      await mkdir(ooxmlpath, { recursive: true });
     } else {
-      const outpath = join(dirpath, docxpath);
+      const outpath = join(dirpath, ooxmlpath);
       await mkdir(dirname(outpath), { recursive: true });
-      const data = await doc.readFile(docxpath, "uint8array");
+      const data = await doc.readFile(ooxmlpath, "uint8array");
       await writeFile(outpath, data);
     }
   }
