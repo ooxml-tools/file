@@ -18,6 +18,10 @@
     "build:data": "tsx scripts/generate-blanks.ts",
     "build:npm": "rollup -c rollup.config.ts --configPlugin typescript"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ooxml-tools/file"
+  },
   "exports": {
     ".": "./dist/npm/index.js",
     "./commands": "./dist/npm/commands.js"
