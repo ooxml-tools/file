@@ -4,14 +4,13 @@ import { formatFromFilename, open } from "../";
 import { ArgumentsCamelCase, Argv } from "yargs";
 import { glob } from "glob";
 import { relative } from "path";
-import { openAsBlob } from "fs";
 import { openAsArrayBuffer } from "./helper";
 
-export const cmd = "pack <docxpath> <dirpath>";
+export const cmd = "pack <filepath> <dirpath>";
 export const desc = "pack directory to docx file";
 export const builder = (yargs: Argv) => {
   yargs
-    .positional("docxpath", {
+    .positional("ooxmlpath", {
       type: "string",
       describe: "",
     })
@@ -21,11 +20,11 @@ export const builder = (yargs: Argv) => {
     });
 };
 export async function handler({
-  docxpath,
+  ooxmlpath,
   dirpath,
-}: ArgumentsCamelCase<{ docxpath: string; dirpath: string }>) {
+}: ArgumentsCamelCase<{ ooxmlpath: string; dirpath: string }>) {
   const zip = new JSZip();
-  const doc = open(formatFromFilename(docxpath), zip);
+  const doc = open(formatFromFilename(ooxmlpath), zip);
   const files = await glob(`${dirpath}/**/*`, {
     ignore: "**/.DS_Store",
     dot: true,
@@ -40,5 +39,5 @@ export async function handler({
     }
   }
   const buffer = await doc.pack("uint8array");
-  await writeFile(docxpath, buffer);
+  await writeFile(ooxmlpath, buffer);
 }

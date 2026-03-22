@@ -5,31 +5,29 @@ import {
   FORMATS,
   OfficeOpenXml,
   docxBlankFiles,
-  // xlsxBlankFiles,
-  // pptxBlankFiles,
-  OfficeOpenXmlType,
+  xlsxBlankFiles,
 } from "../";
 import { ArgumentsCamelCase, Argv } from "yargs";
 
-const blankContents: Record<OfficeOpenXmlType, Record<string, string>> = {
+const blankContents: Record<"docx" | "xlsx", Record<string, string>> = {
   docx: docxBlankFiles,
-  // xlsx: xlsxBlankFiles,
+  xlsx: xlsxBlankFiles,
   // pptx: pptxBlankFiles,
 };
 
-export const cmd = "init <docxpath>";
+export const cmd = "init <ooxmlpath>";
 export const desc = `initializes a blank file (${FORMATS.join(", ")})`;
 export const builder = (yargs: Argv) => {
-  yargs.positional("docxpath", {
+  yargs.positional("ooxmlpath", {
     type: "string",
     describe: "",
   });
 };
 export async function handler({
-  docxpath,
-}: ArgumentsCamelCase<{ docxpath: string }>) {
+  ooxmlpath,
+}: ArgumentsCamelCase<{ ooxmlpath: string }>) {
   const zip = new JSZip();
-  const format = formatFromFilename(docxpath);
+  const format = formatFromFilename(ooxmlpath);
 
   if (format !== "docx") {
     throw new Error(`${format} not currently supported`);
@@ -38,5 +36,5 @@ export async function handler({
   const doc = new OfficeOpenXml(format, zip);
   doc.writeFiles(blankContents[format]);
   const buffer = await doc.pack("uint8array");
-  await writeFile(docxpath, buffer);
+  await writeFile(ooxmlpath, buffer);
 }
