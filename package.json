@@ -10,11 +10,11 @@
     "ooxml-file": "./dist/npm/bin/ooxml-file.js"
   },
   "scripts": {
-    "lint": "npx prettier . --check",
+    "lint": "pnpx prettier . --check",
     "test": "vitest",
     "test:ci": "vitest run --coverage --reporter=junit --outputFile=test-report.junit.xml",
-    "lint:format": "npx prettier . --write",
-    "build": "npm run build:data && npm run build:npm",
+    "lint:format": "pnpx prettier . --write",
+    "build": "pnpm run build:data && pnpm run build:npm",
     "build:data": "tsx scripts/generate-blanks.ts",
     "build:npm": "rollup -c rollup.config.ts --configPlugin typescript"
   },
