@@ -56,11 +56,6 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          cache: true
-          version: 11
       - uses: actions/setup-node@v6
         with:
           node-version: "24.x"
@@ -78,6 +73,6 @@ jobs:
             npm.zip
       - run: |
           cd npm
-          pnpm publish
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
